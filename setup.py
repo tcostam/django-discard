@@ -3,15 +3,9 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-# with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-#     README = readme.read()
-
-# allow setup.py to be run from any path
-# os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
-
 setuptools.setup(
     name='django-discard',
-    version='0.0.1',
+    version='0.0.3',
     packages=setuptools.find_packages(),
     include_package_data=True,
     license='MIT License',

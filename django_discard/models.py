@@ -1,10 +1,10 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 
 class SoftDeletionQuerySet(models.QuerySet):
     def discard(self):
-        return super(SoftDeletionQuerySet, self).update(discarded_at=datetime.utcnow())
+        return super(SoftDeletionQuerySet, self).update(discarded_at=timezone.now())
 
     def undiscard(self):
         return super(SoftDeletionQuerySet, self).update(discarded_at=None)
@@ -30,7 +30,7 @@ class DiscardableModel(models.Model):
         abstract = True
 
     def discard(self):
-        self.discarded_at = datetime.utcnow()
+        self.discarded_at = timezone.now()
         self.save()
 
     def undiscard(self):
